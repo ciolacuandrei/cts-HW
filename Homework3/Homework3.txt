@@ -1,0 +1,40 @@
+Homework 3 - CTS
+Subject: ZombieToys
+
+     ZombieToys is a top-down 3D shooter game I have implemented while doing my specialized practical training for University.
+ I built the game from the ground up using the Unity3D basic game tutorial program following said tutorial’s indications. 
+     At the surface level the game seems fairly impressing for a starting point, but that’s mainly caused by the meticulous process of building and arranging the environment for it to be able to ”steal one’s eye” so to say. 
+If a seasoned programmer/game developer should analyze the game and the implementation process, he/she would find out that the game is fairly crude.
+     At the creational level, being a 3D game, it uses a Prototype design pattern, reusing a lot of existing items to populate its’ environment. 
+The game preloads most of its’ assets, be they lighting, through “light-baking” or characters (enemies or the player itself). 
+To avoid loading times, the game also creates an instance of every type of enemy beforehand, opting to clone them at a later point, when they are needed. 
+By doing this, the game offers little to no customizability on the part of the user, forcing him/her to make due with what it is shown on the screen.
+     If I should rebuild the game, I would implement, first of all, a Builder pattern into the game, allowing the user to change, at will the values at which enemies spawn, or allowing him to create his own enemy to offer a bigger challenge, this could be achieved easily through the use of sliders, choosers and check-boxes, to change things like, as I said above, the frequency of the spawn, the size, HP. 
+With choosers the player would be able to customize the look of the enemies, and with checkboxes he will be able to make the player character “Hardcore”, a.i. if you die, it’s game over, you cannot respawn based on the number of points/lives. 
+At coding level, a Builder would be implemented to construct the different parts that can be changed, the Abstract builder would be used to define the methods to construct said object, and the Director would bring them all together and build the character.
+     The game already uses crude parts of a Factory design pattern, through the Simple Factory method. The enemies are all built using the same template but changed to suit the needs they need to fulfill.
+ An Abstract Factory method could be implemented in the game, but the usage could not be appreciated by some people, object transparency is good but the game, being built as a mindless shoot-to-kill. 
+The bottom line is that there aren’t a lot of people who would spend time creating a lot of their own instances of characters, only to then just see that the basis of the game is run around and don’t die, while sometimes shooting enemies. The Abstract Factory pattern would be achieved by extending the already existing classes and building new abstract methods in preparation for the creating process.
+     The Singleton method could be used in regards to the weapons in the game, the game gives the player a lot of weapons to choose from but most of the time he/she will rely on the basic weapons simply because it’s better.
+ And so, creating just one instance of a weapon that is centrally commanded and does its’ job would be better. This would be achieved through the usage of a Singleton Class.
+     At a Structural level, the main design pattern used is the Façade pattern.
+ All the classes in the game are commanded using a single object “The Command Center”, as it is called, and it’s in the form of the “Observer” or the component that commands the viewpoint of the player, what he/she sees or not. The Observer simply calls the functions necessary to reach and end goal, spawning an enemy, moving an enemy, moving the player, etc.
+     A Proxy pattern could be used by the application should one choose to port it to a mobile device, for example, or even create online leaderboards. 
+This could be achieved by using the API’s necessary to extend the existing code, and of course, adapting the code where it’s necessary.
+     The game could also use a Decorator pattern, but using this means the cutting of half the enemies in the game, which is not a bad idea, the environment would be less appealing through this, that’s all. 
+Some people already thought of this, there are already existing “clones” of the game, where you have only one weapon, and the enemies that attack you are based on the same model, they are just bigger or smaller and have different colors.
+     Flyweight could also be used, even though the game is fairly small and well optimized.
+ This will also mean the reduction of the environment, as the objects build will all look the same. There is a certain point there more things to be added just means less to the game.
+ Although this may be true, the game will certainly run much better.
+     At the behavioral level, as I stated above, the main pattern that’s used it the Observer pattern, the Observer allows all the other components to work and move properly.
+ There are certain triggers that the Observer takes care of, such as the spawn trigger, the death trigger and the “damage taken” trigger.
+     Other solution could be deployed, such as the Strategy pattern, should the game have more than one game-mode, in which case, the player will choose from the interface what game-mode to play and the Game Loop will simply choose the algorithm that allows said game-mode. 
+Of course this would bring a lot more flavor to the game, ultimately making it better.
+ This would be achieved through the implementation of said game-modes, with all the assets that come with them and adapting the interface to suit the needs of each instance of a game-mode.
+     Being a game, it also implements the State pattern, as all the characters in the game find themselves in a certain state at a certain point.
+ Alive, dead, spawning, etc. In doing more, more states could be added to the game, working hand in hand with the Strategy pattern.
+ More states would be useful to the game, for example an “enraged” state, in which the enemies or the player moves faster and hits harder. 
+With these said, again, more could also mean less, the more states there are, the more the user needs to internalize and process which would ultimately lead to unplayability.
+      The application could also use a Memento design pattern, as, being an arcade-like game, it doesn’t allow the player to save their progress. 
+The application may use the ability to save a certain instance of an object for a certain moment in the future, but its’ highly situational and underused. 
+With a Memento pattern, and some changes to the game itself, the application might become a “play a bit, save your progress, come back later” type of game, which in some cases might elevate the player-experience.
